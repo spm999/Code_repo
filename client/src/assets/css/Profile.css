@@ -1,0 +1,331 @@
+/* Profile.css */
+.profile-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
+  padding: 40px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.profile-card {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  border: 1px solid #e5e7eb;
+  position: relative;
+}
+
+.profile-title {
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 35px;
+  position: relative;
+}
+
+.profile-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+  border-radius: 2px;
+}
+
+.center-text {
+  text-align: center;
+  color: #64748b;
+  font-size: 1.1rem;
+  margin-top: 100px;
+}
+
+.error-text {
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 14px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.success-text {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #16a34a;
+  padding: 14px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.profile-form label {
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.95rem;
+  margin-bottom: -8px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 16px 20px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  background-color: #f8fafc;
+  color: #334155;
+  margin-top: 5px;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background-color: white;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+  transform: translateY(-2px);
+}
+
+.form-input::placeholder {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+select.form-input {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 20px center;
+  background-size: 16px;
+  padding-right: 50px;
+  cursor: pointer;
+}
+
+.form-button {
+  width: 100%;
+  background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+  color: white;
+  padding: 18px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+.form-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.form-button:hover::before {
+  left: 100%;
+}
+
+.form-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+}
+
+.form-button:active {
+  transform: translateY(-1px);
+}
+
+/* Loading animation for button */
+.form-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.form-button:disabled::after {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-left: 12px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive design */
+@media (max-width: 640px) {
+  .profile-card {
+    padding: 35px 30px;
+    margin: 20px;
+  }
+  
+  .profile-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  
+  .form-input {
+    padding: 15px 18px;
+  }
+  
+  .form-button {
+    padding: 16px;
+    font-size: 1.05rem;
+  }
+  
+  .logout-button {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-container {
+    padding: 20px 15px;
+  }
+  
+  .profile-card {
+    padding: 30px 25px;
+  }
+  
+  .profile-title {
+    font-size: 1.8rem;
+  }
+  
+  .form-input {
+    padding: 14px 16px;
+  }
+  
+  .form-button {
+    padding: 15px;
+  }
+  
+  .logout-button {
+    padding: 14px;
+  }
+}
+
+/* Focus styles for accessibility */
+.form-input:focus-visible,
+.form-button:focus-visible,
+.logout-button:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Animation for form appearance */
+.profile-card {
+  animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* User info display (if you want to show read-only info) */
+.user-info {
+  background-color: #f8fafc;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 10px;
+}
+
+.user-info p {
+  margin: 8px 0;
+  color: #475569;
+}
+
+.user-info strong {
+  color: #1e293b;
+}
+
+/* Success message animation */
+.success-text {
+  animation: fadeInOut 3s ease-in-out;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(-10px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-10px); }
+}
+
+/* Placeholder styling */
+.form-input::-webkit-input-placeholder {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+.form-input::-moz-placeholder {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+.form-input:-ms-input-placeholder {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+.form-input::-ms-input-placeholder {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+.form-input::placeholder {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+/* Read-only state for some fields if needed */
+.form-input:read-only {
+  background-color: #f1f5f9;
+  color: #64748b;
+  cursor: not-allowed;
+}
+
+.form-input:read-only:focus {
+  border-color: #e2e8f0;
+  box-shadow: none;
+  transform: none;
+}
