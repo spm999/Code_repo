@@ -9,29 +9,23 @@ export default function Home() {
       {/* Hero Section */}
       <section id="hero-section">
         <div className="hero-content">
-          {/* <h1 className="hero-title"> */}
-            {/* <span>Centralized</span> */}
-            {/* <span className="gradient-text">Code Repository</span> */}
-          {/* </h1> */}
-          
           <p className="hero-description">
             A secure platform to store, manage, and share automation scripts, 
-            utilities, and code modules across departments with AI-powered discovery.
+            utilities, and code modules across departments.
           </p>
 
           <div className="cta-buttons">
             <Link to="/register" className="primary-btn">Get Started Free</Link>
-            {/* <Link to="/login" className="secondary-btn">User Login</Link> */}
           </div>
 
           {/* Stats */}
           <div className="stats-container">
             <div className="stat-item">
-              <div className="stat-number">10K+</div>
+              <div className="stat-number">10+</div>
               <div className="stat-label">Code Files</div>
             </div>
             <div className="stat-item">
-              <div className="stat-number">5K+</div>
+              <div className="stat-number">5+</div>
               <div className="stat-label">Active Users</div>
             </div>
             <div className="stat-item">
@@ -63,22 +57,22 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="feature-card">
+            {/* <div className="feature-card">
               <div className="feature-icon">🏷️</div>
               <h3 className="feature-title">Smart Tagging</h3>
               <p className="feature-description">
                 AI-powered metadata extraction and intelligent tagging for easy discovery.
               </p>
-            </div>
+            </div> */}
             
-            <div className="feature-card">
+            {/* <div className="feature-card">
               <div className="feature-icon">🤖</div>
               <h3 className="feature-title">AI Assistant</h3>
               <p className="feature-description">
                 Built-in AI that explains code, suggests optimizations, and guides best practices.
               </p>
             </div>
-            
+             */}
             <div className="feature-card">
               <div className="feature-icon">🔄</div>
               <h3 className="feature-title">Version Control</h3>
@@ -138,7 +132,7 @@ export default function Home() {
                 <span className="logo-text">CodeRepository</span>
               </div>
               <p className="footer-description">
-                The ultimate platform for code storage, management, and collaboration.
+                The ultimate platform for code storage and management
               </p>
             </div>
             

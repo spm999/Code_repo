@@ -13,24 +13,88 @@ const generateToken = (user) => {
 };
 
 // @desc Register user
+// exports.registerUser = async (req, res) => {
+//   try {
+//     console.log("📥 Incoming Register Request:", req.body);
+
+//     const { username, email, password, role, department } = req.body;
+
+//     console.log("🔍 Checking if user exists with email:", email);
+//     const userExists = await User.findOne({ email });
+//     console.log("➡️ User Exists?", !!userExists);
+
+//     if (userExists) {
+//       console.warn("⚠️ Registration failed: User already exists ->", email);
+//       return res.status(400).json({ 
+//         success: false,
+//         message: "User already exists" 
+//       });
+//     }
+
+//     console.log("🛠 Creating new user:", { username, email, role, department });
+//     const user = await User.create({
+//       username,
+//       email,
+//       password,
+//       role,
+//       department,
+//     });
+
+//     console.log("✅ User created successfully:", user);
+
+//     const token = generateToken(user._id);
+//     console.log("🔑 Generated Token:", token);
+
+//     res.status(201).json({
+//       success: true,
+//       message: "Registration successful",
+//       data: {
+//         _id: user._id,
+//         username: user.username,
+//         email: user.email,
+//         role: user.role,
+//         token,
+//       }
+//     });
+//   } catch (err) {
+//     console.error("❌ Error in registerUser:", err);
+//     res.status(500).json({ 
+//       success: false,
+//       message: "Server error" 
+//     });
+//   }
+// };
+
+// @desc Register user
 exports.registerUser = async (req, res) => {
   try {
     console.log("📥 Incoming Register Request:", req.body);
 
     const { username, email, password, role, department } = req.body;
 
+    // Check if email already exists
     console.log("🔍 Checking if user exists with email:", email);
-    const userExists = await User.findOne({ email });
-    console.log("➡️ User Exists?", !!userExists);
-
-    if (userExists) {
-      console.warn("⚠️ Registration failed: User already exists ->", email);
+    const emailExists = await User.findOne({ email });
+    if (emailExists) {
+      console.warn("⚠️ Registration failed: Email already exists ->", email);
       return res.status(400).json({ 
         success: false,
-        message: "User already exists" 
+        message: "Email already in use" 
       });
     }
 
+    // Check if username already exists
+    console.log("🔍 Checking if username exists:", username);
+    const usernameExists = await User.findOne({ username });
+    if (usernameExists) {
+      console.warn("⚠️ Registration failed: Username already exists ->", username);
+      return res.status(400).json({ 
+        success: false,
+        message: "Username already taken" 
+      });
+    }
+
+    // Create new user
     console.log("🛠 Creating new user:", { username, email, role, department });
     const user = await User.create({
       username,
@@ -42,6 +106,7 @@ exports.registerUser = async (req, res) => {
 
     console.log("✅ User created successfully:", user);
 
+    // Generate token
     const token = generateToken(user._id);
     console.log("🔑 Generated Token:", token);
 
