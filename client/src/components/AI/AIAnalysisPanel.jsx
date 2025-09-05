@@ -29,7 +29,9 @@ const AIAnalysisPanel = ({ file, token, onClose }) => {
 
       // Run AI Analysis
       const res = await axios.post(
-        `https://code-repo-jrfq.onrender.com/api/ai/analyze/${latestVersion._id}`,
+        // `https://code-repo-jrfq.onrender.com/api/ai/analyze/${latestVersion._id}`,
+        `http://localhost:3000/api/ai/analyze/${latestVersion._id}`,
+        
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
