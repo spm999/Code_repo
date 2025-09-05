@@ -506,13 +506,35 @@ const AdminDashboard = () => {
                               🗑️ Delete
                             </button>
                             {/* ?? */}
-<button
+{/* <button
   onClick={() => setAnalysisFile(file)}
   className="analyze-btn"
   title="Run AI Analysis"
 >
   🤖 Analyze
+</button> */}
+
+<button
+  onClick={() => {
+    // Get the latest version directly
+    const latestVersion = file.versions[file.versions.length - 1];
+    if (!latestVersion) {
+      alert("No version available for analysis");
+      return;
+    }
+    setAnalysisFile({
+      versionId: latestVersion._id,
+      title: file.title,
+    });
+  }}
+  className="analyze-btn"
+  title="Run AI Analysis"
+>
+  🤖 Analyze
 </button>
+
+
+
 
                             {/* ?? */}
                           </div>
@@ -531,9 +553,20 @@ const AdminDashboard = () => {
             </div>
           )}
 
-          {analysisFile && (
+          {/* {analysisFile && (
   <AIAnalysisPanel file={analysisFile} onClose={() => setAnalysisFile(null)} />
+)} */}
+
+{analysisFile && (
+  <AIAnalysisPanel
+    versionId={analysisFile.versionId} // pass version ID
+    fileTitle={analysisFile.title}    // pass file title
+    token={token}
+    onClose={() => setAnalysisFile(null)}
+  />
 )}
+
+
 
         </div>
       </div>
