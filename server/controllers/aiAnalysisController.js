@@ -6,9 +6,6 @@ const { analyzeCode } = require("../utils/aiService");
 // Only admins should use this
 exports.runAIAnalysis = async (req, res) => {
   try {
-    if (req.user.role !== "admin") {
-      return res.status(403).json({ success: false, message: "Only admins can analyze code" });
-    }
 
     const { versionId } = req.params;
     const codeVersion = await CodeVersion.findById(versionId);
