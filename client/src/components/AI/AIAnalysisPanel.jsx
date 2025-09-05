@@ -15,7 +15,8 @@ const AIAnalysisPanel = ({ file, token, onClose }) => {
 
       // Get full file details (to find latest version)
       const fileRes = await axios.get(
-        `https://code-repo-jrfq.onrender.com/api/code/files/${file._id}`,
+        `http://localhost:3000/api/code/files/${file._id}`,
+        // `https://code-repo-jrfq.onrender.com/api/code/files/${file._id}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
 

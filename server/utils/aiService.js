@@ -1,10 +1,14 @@
 // services/aiService.js
 require("dotenv").config();
 const { VertexAI } = require("@google-cloud/vertexai");
+const serviceAccount = JSON.parse(process.env.GCP_KEY);
 
 const vertexAI = new VertexAI({
   project: process.env.GCLOUD_PROJECT,
   location: "us-central1",
+   googleAuthOptions: {
+    credentials: serviceAccount,
+  },
 });
 
 const model = vertexAI.getGenerativeModel({ model: "gemini-2.5-pro" });
