@@ -8,7 +8,7 @@ const CodeFileDetailPage = () => {
   const [file, setFile] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/api/files/${id}`, {
+    axios.get(`https://code-repo-jrfq.onrender.com/api/files/${id}`, {
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
     })
     .then(res => setCodeFile(res.data.data))
@@ -20,7 +20,7 @@ const CodeFileDetailPage = () => {
     const formData = new FormData();
     formData.append("codeFile", file);
     try {
-      await axios.post(`http://localhost:3000/api/files/${id}/upload`, formData, {
+      await axios.post(`https://code-repo-jrfq.onrender.com/api/files/${id}/upload`, formData, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
           "Content-Type": "multipart/form-data"

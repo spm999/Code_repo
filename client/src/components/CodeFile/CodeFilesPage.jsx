@@ -6,7 +6,7 @@ const CodeFilesPage = () => {
   const [codeFiles, setCodeFiles] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/api/files", {
+    axios.get("https://code-repo-jrfq.onrender.com/api/files", {
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
     })
     .then(res => setCodeFiles(res.data.data))

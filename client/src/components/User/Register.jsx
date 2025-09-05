@@ -22,7 +22,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3000/api/users/register", formData);
+      await axios.post("https://code-repo-jrfq.onrender.com/api/users/register", formData);
       setSuccess("Registration successful! Redirecting to login...");
       setError(""); // Clear any previous errors
 

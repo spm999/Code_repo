@@ -52,7 +52,7 @@ const Profile = () => {
 
   const fetchProfile = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/api/users/me", {
+      const res = await axios.get("https://code-repo-jrfq.onrender.com/api/users/me", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setUser(res.data);
@@ -72,7 +72,7 @@ const Profile = () => {
   const fetchUserCodeFiles = async () => {
     try {
       setFilesLoading(true);
-      const res = await axios.get("http://localhost:3000/api/code/user/files", {
+      const res = await axios.get("https://code-repo-jrfq.onrender.com/api/code/user/files", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setCodeFiles(res.data.data || []);
@@ -87,7 +87,7 @@ const Profile = () => {
   const fetchAllApprovedFiles = async () => {
     try {
       setApprovedFilesLoading(true);
-      const res = await axios.get("http://localhost:3000/api/code/files", {
+      const res = await axios.get("https://code-repo-jrfq.onrender.com/api/code/files", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const approvedFiles = (res.data.data || []).filter(file => file.status === "approved");
@@ -116,7 +116,7 @@ const Profile = () => {
     e.preventDefault();
     try {
       const res = await axios.put(
-        `http://localhost:3000/api/users/${user._id}`,
+        `https://code-repo-jrfq.onrender.com/api/users/${user._id}`,
         formData,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -146,7 +146,7 @@ const Profile = () => {
         formDataToSend.append("codeContent", uploadData.codeContent);
       }
 
-      await axios.post("http://localhost:3000/api/code/files", formDataToSend, {
+      await axios.post("https://code-repo-jrfq.onrender.com/api/code/files", formDataToSend, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
@@ -174,7 +174,7 @@ const Profile = () => {
   const handleUpdateFile = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:3000/api/code/files/${selectedFile._id}`, {
+      await axios.put(`https://code-repo-jrfq.onrender.com/api/code/files/${selectedFile._id}`, {
         title: uploadData.title,
         description: uploadData.description,
         tags: uploadData.tags,
@@ -199,7 +199,7 @@ const Profile = () => {
       const versionFormData = new FormData();
       versionFormData.append("codeFile", uploadFile);
 
-      await axios.post(`http://localhost:3000/api/code/files/${selectedFile._id}/upload`, versionFormData, {
+      await axios.post(`https://code-repo-jrfq.onrender.com/api/code/files/${selectedFile._id}/upload`, versionFormData, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
@@ -222,7 +222,7 @@ const Profile = () => {
       setIsLoadingContent(true);
       setSelectedFile(file);
 
-      const fileRes = await axios.get(`http://localhost:3000/api/code/files/${file._id}`, {
+      const fileRes = await axios.get(`https://code-repo-jrfq.onrender.com/api/code/files/${file._id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -273,7 +273,7 @@ const Profile = () => {
   const handleUpdateCodeContent = async () => {
     try {
       await axios.put(
-        `http://localhost:3000/api/code/files/${selectedFile._id}/content`,
+        `https://code-repo-jrfq.onrender.com/api/code/files/${selectedFile._id}/content`,
         { codeContent: uploadData.codeContent }
       );
       setSuccess("Code updated successfully!");

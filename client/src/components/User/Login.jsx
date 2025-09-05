@@ -15,7 +15,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:3000/api/users/login", formData);
+      const res = await axios.post("https://code-repo-jrfq.onrender.com/api/users/login", formData);
       localStorage.setItem("token", res.data.token);
 
 // Trigger header update

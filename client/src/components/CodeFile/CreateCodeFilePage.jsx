@@ -13,7 +13,7 @@ const CreateCodeFilePage = () => {
     e.preventDefault();
     try {
       await axios.post(
-        "http://localhost:3000/api/files",
+        "https://code-repo-jrfq.onrender.com/api/files",
         { title, description, tags: tags.split(","), language },
         { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
       );

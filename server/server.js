@@ -4,7 +4,7 @@ const connectDB = require("./utils/database"); // ✅ Import the connection func
 const userRoutes = require("./routes/userRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const codeRoutes = require("./routes/codeRoutes"); // ✅ Import code routes
-
+const aiAnalysisRoutes = require("./routes/aiAnalysisRoutes");
 
 const app = express();
 
@@ -20,6 +20,7 @@ app.use(express.json());
 app.use("/api/users", userRoutes);
 app.use("/api/admins", adminRoutes);
 app.use("/api/code", codeRoutes); // ✅ Mount code routes
+app.use("/api/ai", aiAnalysisRoutes);
 
 // ✅ Health check
 app.get("/", (req, res) => {

@@ -34,7 +34,7 @@ const AdminRegister = () => {
     }
 
     try {
-      await axios.post("http://localhost:3000/api/admins/register", formData, {
+      await axios.post("https://code-repo-jrfq.onrender.com/api/admins/register", formData, {
         headers: {
           'Content-Type': 'application/json'
         }

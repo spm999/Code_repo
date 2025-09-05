@@ -1,73 +1,3 @@
-// // src/pages/admin/AdminLogin.jsx
-// import { useState } from "react";
-// import { useNavigate, Link } from "react-router-dom";
-// import axios from "axios";
-// import "../../assets/css/Form.css";
-
-// const AdminLogin = () => {
-//   const [formData, setFormData] = useState({ email: "", password: "" });
-//   const [error, setError] = useState("");
-//   const navigate = useNavigate();
-
-//   const handleChange = (e) =>
-//     setFormData({ ...formData, [e.target.name]: e.target.value });
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     try {
-//       const res = await axios.post(
-//         "http://localhost:3000/api/admins/login",
-//         formData
-//       );
-//       localStorage.setItem("adminToken", res.data.token);
-//       localStorage.setItem("adminData", JSON.stringify(res.data));
-//       navigate("/admin/dashboard");
-//     } catch (err) {
-//       setError(err.response?.data?.message || "Login failed");
-//     }
-//   };
-
-//   return (
-//     <div className="form-container">
-//       <form className="form-card" onSubmit={handleSubmit}>
-//         <h2 className="form-title">Admin Login</h2>
-//         {error && <p className="error-text">{error}</p>}
-
-//         <input
-//           type="email"
-//           name="email"
-//           placeholder="Email"
-//           className="form-input"
-//           onChange={handleChange}
-//           required
-//         />
-//         <input
-//           type="password"
-//           name="password"
-//           placeholder="Password"
-//           className="form-input"
-//           onChange={handleChange}
-//           required
-//         />
-
-//         <button type="submit" className="form-button">
-//           Login
-//         </button>
-
-//         <p className="form-footer">
-//           Don't have an account?{" "}
-//           <Link to="/admin/register" className="form-link">
-//             Register
-//           </Link>
-//         </p>
-//       </form>
-//     </div>
-//   );
-// };
-
-// export default AdminLogin;
-
-
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
@@ -93,7 +23,7 @@ const AdminLogin = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/admins/login",
+        "https://code-repo-jrfq.onrender.com/api/admins/login",
         formData,
         {
           headers: {
