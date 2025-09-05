@@ -147,8 +147,8 @@ const AIAnalysisPanel = ({ versionId, fileTitle, token, onClose }) => {
       // 🔥 Directly call AI analysis with versionId
       const res = await axios.post(
         // Production endpoint:
-        // `https://code-repo-jrfq.onrender.com/api/ai/analyze/${versionId}`,
-        `http://localhost:3000/api/ai/analyze/${versionId}`,
+        `https://code-repo-jrfq.onrender.com/api/ai/analyze/${versionId}`,
+        // `http://localhost:3000/api/ai/analyze/${versionId}`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
